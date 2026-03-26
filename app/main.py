@@ -214,7 +214,7 @@ async def get_knowledge(chapter_id: str):
 @app.get("/chat", include_in_schema=False)
 async def chat_page():
     """聊天页面"""
-    static_path = os.path.join(os.path.dirname(__file__), "static")
+    static_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "static")
     return FileResponse(os.path.join(static_path, "index.html"))
 
 
