@@ -23,6 +23,9 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY app/ ./app/
 COPY knowledge_base/ ./knowledge_base/
 
+# 创建静态文件目录
+RUN mkdir -p /app/app/static
+
 # 暴露端口
 EXPOSE 8000
 

@@ -5,6 +5,8 @@ FastAPI 主应用入口
 
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
 from pydantic import BaseModel
 from typing import Optional
 import os
@@ -207,6 +209,20 @@ async def get_knowledge(chapter_id: str):
         "title": chapter_map[chapter_id],
         "content": content
     }
+
+
+@app.get("/chat", include_in_schema=False)
+async def chat_page():
+    """聊天页面"""
+    static_path = os.path.join(os.path.dirname(__file__), "static")
+    return FileResponse(os.path.join(static_path, "index.html"))
+
+
+@app.get("/", include_in_schema=False)
+async def root_redirect():
+    """根路径重定向到聊天页面"""
+    from fastapi.responses import RedirectResponse
+    return RedirectResponse(url="/chat")
 
 
 if __name__ == "__main__":
