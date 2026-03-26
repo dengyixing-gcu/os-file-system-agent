@@ -1,13 +1,15 @@
-fastapi==0.109.0
-uvicorn==0.27.0
-python-multipart==0.0.6
-pydantic==2.5.3
-pydantic-settings==2.1.0
-langchain==0.1.0
-langchain-community==0.0.10
-langchain-text-splitters==0.0.1
-chromadb==0.4.22
-sentence-transformers==2.2.2
-markdown==3.5.2
-python-dotenv==1.0.0
-httpx==0.26.0
+# FastAPI 框架
+fastapi>=0.109.0
+uvicorn>=0.27.0
+python-multipart>=0.0.6
+pydantic>=2.5.0
+pydantic-settings>=2.1.0
+
+# RAG 相关（简化版，不使用 langchain）
+chromadb>=0.4.22
+sentence-transformers>=2.2.2
+
+# 工具库
+markdown>=3.5.2
+python-dotenv>=1.0.0
+httpx>=0.26.0
